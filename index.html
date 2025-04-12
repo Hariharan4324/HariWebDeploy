@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project H2">
+    <meta name="keywords" content="e-commerce">
+    <title>H2 | E-commerce Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        p{
+            cursor:pointer;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #333;
+            color: white;
+        }
+
+        .navbar img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 30px;
+            background: linear-gradient(145deg, #888, #fff);
+        }
+
+        .hero .content {
+            max-width: 50%;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ffd700;
+            color: #333;
+            box-shadow: 0 0 10px rgba(72, 70, 70, 0.1);
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 30px;
+            background-color: #fff;
+        }
+
+        .categories .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .categories .col-3 img {
+            width: 100%;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .categories .col-3 img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            padding: 80px 30px;
+            background-color: #f4f4f4;
+        }
+
+        .product-gallery h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .product-gallery .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-gallery .col-4 {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-gallery .col-4 img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-gallery .col-4 h4 {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .product-gallery .col-4 .rating {
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .product-gallery .col-4:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 30px;
+        }
+
+        .footer .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer .col-1, .footer .col-2, .footer .col-3, .footer .col-4 {
+            flex-basis: 22%;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .footer .social-links a {
+            margin-right: 20px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .footer .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+            .navbar img {
+                height: 40px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #333;
+                width: 100%;
+                padding: 20px 0;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero .content {
+                max-width: 100%;
+            }
+
+            .product-gallery .row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-gallery .row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer .row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer .col-1, .footer .col-2, .footer .col-3, .footer .col-4 {
+                flex-basis: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <img src="output-onlinepngtools (3).png" alt="Logo">
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+        <img src="cart.png" width="30" height="30" alt="Cart Icon">
+        <img src="menu.png" class="menu-icon" onclick="menutoggle()" alt="Menu Icon">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="content">
+            <h1>Search Your Perfect Suit</h1>
+            <p>Fashion That Makes Heads Turn, Your Style, Your Smile</p>
+            <a href="#" class="btn">Explore More &#8594;</a>
+        </div>
+        <img src="coats.png" alt="Coats Image">
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="normal-1.jpg" alt="Category 1">
+                </div>
+                <div class="col-3">
+                    <img src="normal-2.jpg" alt="Category 2">
+                </div>
+                <div class="col-3">
+                    <img src="normal-3.jpg" alt="Category 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery Section -->
+    <section class="product-gallery">
+        <h2>Cool and Trendy Fashions</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="gallery-1.jpg" alt="">
+                <h4>Cool Black Pants</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-2.jpg" alt="">
+                <h4>Formal Gray Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-3.jpg" alt="">
+                <h4>Trendy Navy Blue Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-4.jpg" alt="">
+                <h4>Light Blue Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-5.jpg" alt="">
+                <h4>Light Blue Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-6.jpg" alt="">
+                <h4>Light Blue Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-7.jpg" alt="">
+                <h4>Light Blue Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+            <div class="col-4">
+                <img src="gallery-8.jpg" alt="">
+                <h4>Light Blue Suit</h4>
+                <div class="rating">&#9733;&#9733;&#9733;&#9733;&#10032;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download the app for Android and iOS mobile phones</p>
+                <div class="app-logo">
+                    <img src="play-store.png" alt="Play Store">
+                    <img src="app-store.png" alt="App Store">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="output-onlinepngtools (3).png" alt="H2 logo">
+                <p>Reflect your brand's image: A good slogan should capture the essence of your brand's style and image.</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Coupons</a></li>
+                    <li><a href="#">Blog Post</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Join Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <center>
+            <p class="Copyright">Copyright &copy; 2024 - H2</p>
+        </center>
+    </footer>
+
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight === "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
+</body>
+</html>
